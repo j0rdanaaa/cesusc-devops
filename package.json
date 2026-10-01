@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-"scripts": {
-  "start": "node src/app.js",
-  "test": "jest --coverage",
-  "lint": "eslint src/*.js"
-},
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "jest --coverage",
+    "lint": "eslint src/*.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/j0rdanaaa/cesusc-devops.git"
@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "chromedriver": "^154.0.1",
+    "chromedriver": "148.0.4",
     "eslint": "^10.11.0",
     "globals": "^17.13.0",
     "jest": "^30.5.2",
