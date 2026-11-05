@@ -1,3 +1,4 @@
+
 name: CI
 
 on:
@@ -28,9 +29,18 @@ jobs:
           sudo DEBIAN_FRONTEND=noninteractive \
             apt install /tmp/google-chrome-stable_current_amd64.deb -y --allow-downgrades
 
+      - name: Iniciar aplicação
+        run: |
+          npm start > /tmp/cesusc-app.log 2>&1 &
+          for i in {1..30}; do
+            if curl -fsS http://localhost:3000 > /dev/null; then
+              echo "Aplicação pronta!"
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/cesusc-app.log
+          exit 1
+
       - name: Executar testes
         run: npm test
-
-        
-      - name: Iniciar aplicação
-        run: npm start &  
