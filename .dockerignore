@@ -1,0 +1,9 @@
+node_modules
+.git
+.github
+coverage
+npm-debug.log
+.env
+.env.*
+*.pem
+*.ppk
