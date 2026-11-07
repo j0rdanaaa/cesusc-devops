@@ -1,0 +1,10 @@
+
+services:
+  web:
+    image: jordanagoes/cesusc-devops:latest
+    container_name: cesusc-devops-web
+    ports:
+      - "127.0.0.1:3002:3000"
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
