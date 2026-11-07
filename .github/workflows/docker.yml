@@ -32,3 +32,16 @@ jobs:
           tags: |
             jordanagoes/cesusc-devops:latest
             jordanagoes/cesusc-devops:${{ github.sha }}
+
+
+      - name: Atualizar container na AWS EC2
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /opt/cesusc-devops
+            git pull --ff-only origin main
+            docker compose pull
+            docker compose up -d --remove-orphans
